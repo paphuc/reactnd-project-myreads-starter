@@ -34,10 +34,11 @@ class BooksApp extends Component {
 
   updateQuery = (query) => {
     this.setState(() => ({
-      query: query.trim(),
+      query: query,
       result: [],
     }));
     if (query) {
+      console.log("Query: " + JSON.stringify({ query }))
       BooksAPI.search(query).then((result) => {
         if (result.error) {
           console.log("Search book err: " + result.error);
